@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Enterprise Demo</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("scoutTheme");
+      const theme =
+        param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">GitHub Enterprise Demo</p>
+    <h1>Del codigo a produccion con automatizacion y seguridad</h1>
+    <p class="subtitle">
+      Una demo simple para mostrar Copilot, GitHub Actions, GitHub Pages y GitHub Advanced Security
+      en un flujo empresarial de desarrollo.
+    </p>
+    <a class="button" href="#pipeline">Ver pipeline</a>
+  </header>
+
+  <main>
+    <section class="cards" aria-label="Capacidades principales">
+      <article>
+        <span>1</span>
+        <h2>Copilot</h2>
+        <p>Acelera la creacion de features, pruebas y documentacion dentro del flujo del desarrollador.</p>
+      </article>
+      <article>
+        <span>2</span>
+        <h2>Actions</h2>
+        <p>Automatiza validaciones, builds y despliegues desde cada Pull Request.</p>
+      </article>
+      <article>
+        <span>3</span>
+        <h2>GHAS</h2>
+        <p>Integra seguridad en el repositorio con CodeQL, secret scanning y dependency review.</p>
+      </article>
+    </section>
+
+    <section id="pipeline" class="panel">
+      <h2>Pipeline de demo</h2>
+      <ol id="pipelineSteps"></ol>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,29 @@
+name: CI - Pull Request Validation
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate-site:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate required files
+        run: |
+          test -f 01-app-github-pages/index.html
+          test -f 01-app-github-pages/styles.css
+          test -f 01-app-github-pages/app.js
+
+      - name: Check for common demo markers
+        run: |
+          grep -q "GitHub Enterprise Demo" 01-app-github-pages/index.html
+          grep -q "GitHub Actions" 01-app-github-pages/index.html
+
